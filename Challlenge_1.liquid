@@ -1,0 +1,24 @@
+<!--Challenge 1 -->
+
+{% assign greeting = "hello world!!!" %}
+
+<!-- 
+a.) Render the variable "greeting" in a h1-element  
+-->
+ <h1>{{greeting}}</h1>
+
+<!-- 
+b.) Copy the h1-tag and use a Liquid filter to turn each letter into a capital letter. 
+-->
+ <h1>{{greeting | upcase }}</h1>
+
+
+<!-- 
+c.) Copy the h1-tag again and chain another Liquid filter remove all the exclamation marks. 
+-->
+
+ <h1>{{greeting | upcase| remove: '! '}}</h1>
+
+
+<!-- End Challenge 1 -->
+</section>
