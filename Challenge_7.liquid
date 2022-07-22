@@ -64,7 +64,16 @@ Hint: You will need to use an image url filter.
 
 --> 
 
-  
+<ul class="product-list">
+  {% for product in collections["all"].products  %}    
+    {% if product.available %}
+  <li>
+    <img src="{{ product.featured_image | img_url: '200x'}}"/>
+    <h4>{{product.title}}</h4>
+  </li>
+    {% endif %}   
+    {% endfor %}
+</ul> 
 
   
   
