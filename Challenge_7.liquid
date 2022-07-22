@@ -84,8 +84,18 @@ d.) Add a button to view the product page below the title.
 You can use an a-tag with the css class "btn" as button.
 
 -->
-  
 
+<ul class="product-list">
+  {% for product in collections["all"].products  %}    
+    {% if product.available %}
+  <li>
+    <img src="{{ product.featured_image | img_url: '200x'}}"/>
+    <h4>{{product.title}}</h4>
+      <a class ="btn" href="{{ product.url }}">View Product</a>
+  </li>
+    {% endif %}   
+    {% endfor %}
+</ul>
   
   
   
