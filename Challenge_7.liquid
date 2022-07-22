@@ -43,7 +43,17 @@ If it's unavailable, don't show it.
 (you can test this by editing one of the products -> check the checkbox to track the quantity -> set the quantity to 0 -> this product is now unavailable)
 -->
 
-
+<ul class="product-list">
+  {% for product in collections["all"].products  %}
+    
+    {% if product.available %}
+  <li>
+    <h4>{{product.title}}</h4>
+  </li>
+    {% endif %}
+    
+  {% endfor %}
+</ul>
   
 <!--
 c.) Display the product image (featured image / first image) above the title, but still within the list items.
