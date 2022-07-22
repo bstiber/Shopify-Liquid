@@ -1,0 +1,96 @@
+<!-- Challenge 7 -->
+  
+<!-- 
+Unlike with collections, we can't just loop over all the products in a store.
+
+Even though there is one global object that's called "all_products", 
+
+it only helps to access individual products based on their handle. 
+→ all_products["sunglasses-xyz"] for instance.
+
+
+Every store has a hidden collection called "all". As the name suggests, this collection also contains a list of all products. 
+
+You can access the collection object in the following way:
+
+ { { collections["all"] }}
+
+-->
+  
+
+<!-- 
+a.)  Create an <ul> element with a css class of "product-list", that holds all the existing product titles as individual list items. 
+
+Within the list items, wrap the title into a h4-element
+
+-->
+<!--    -->
+<!-- Renders all the hidden products in the collections -->
+
+<ul class="product-list">
+  {% for product in collections["all"].products  %}
+  <li>
+    <h4>{{product.title}}</h4>
+  </li>
+  {% endfor %}
+</ul>
+
+<!--
+b.) Before putting out a product title check the availability of the product.
+
+If it's unavailable, don't show it.
+
+(you can test this by editing one of the products -> check the checkbox to track the quantity -> set the quantity to 0 -> this product is now unavailable)
+-->
+
+
+  
+<!--
+c.) Display the product image (featured image / first image) above the title, but still within the list items.
+
+The images should be rendered with a 200px width.
+
+Hint: You will need to use an image url filter.
+
+--> 
+
+  
+
+  
+  
+ 
+<!--
+d.) Add a button to view the product page below the title.
+
+You can use an a-tag with the css class "btn" as button.
+
+-->
+  
+
+  
+  
+  
+<!--
+e.) Add a second button, to immediatley add the product to the cart.
+
+Hint:
+The easiest way of adding a product to the cart is by clicking a link that points to:
+/cart/add?id=1234
+
+Hereby the ID referes to the corresponding variant ID.
+It's important to note that the variant-ID is different from the overall product-ID.
+
+Let me explain:
+Every product has at least one variant. 
+Even if we don't have further colors or size-options to choose from.
+
+In that case, the hidden variant represents the product itself, but the variant-ID is still different form the product-ID.
+
+You may want to take a look at the product object and a property called "first_available_variant".
+-->  
+  
+  
+
+
+<!-- End Challenge 7 -->
+</section>
