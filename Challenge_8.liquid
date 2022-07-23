@@ -1,0 +1,56 @@
+<!-- Challenge 8 -->
+
+<!-- 
+I've been trying to implement a new feature on the store but couldn't get it to work.
+Could you take a look at my script and try to get it to work?
+
+
+The feature should work as follows:
+The client wants to have a "see on instagram"-button for some of his products.
+On the backend he is able to add different tags to his products.
+When he adds a tag in the format of "instagram_link:url-to-instagram-page",
+the "see-on-instagram" button should be visible and the URL should be extracted from the tag.
+
+I have no idea why the button is currently not showing up.
+When I had it showing, the url wasn't correct either.
+
+Hope you can help me to fix this.
+ -->
+   
+<!--
+For this challenge we need a bit of fictional product data (you can ignore this).
+  {% assign fictional_product_title = "Yellow Dress" %}
+  {% assign fictional_product_image = "http://loremflickr.com/125/125/yellow,dress/all?lock=41" %}
+  
+  {% assign fictional_tags_string = "women,summer,instagram_link:https://www.instagram.com/shopify/,sale,new_arivals"%}
+  {% assign fictional_product_tags = fictional_tags_string | split:',' %}
+-->
+
+  
+  {% assign has_instagram_link = false %}
+  
+  
+  {% for tag in fictional_product_tags %}
+  {{ tag}}
+ 
+    {% if tag contains 'instagram_link' %}
+      {% assign has_instagram_link = true %}
+  	  {% assign link = tag | split: ':'  | last  %}
+  	   
+    {% endif%}
+  
+  {% endfor %}
+  
+  
+  
+  
+  <div class="product-gallery">
+  
+  <img src="{{fictional_product_image}}" />
+  <h6>{{fictional_product_title}}</h6>
+  
+    
+   	
+  {% if has_instagram_link %}
+  <a class="btn" href="{{link}}"> See on Instagram </a>
+  {% endif %}
