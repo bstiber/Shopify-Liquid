@@ -23,3 +23,64 @@ Hint: Cycle-Tags -->
 <h6 class="{% cycle 'red','blue', 'green' %}">Hello World</h6>
 
 {% endfor %}
+
+b.) 
+
+(NOTE:PLS MAKE SURE TO VIEW THE MARKUP DOWN BELOW IN DESKTOP MODE / WIDTH)
+
+More complex Markup may seem scary at first, but is actually not that different. 
+
+The Markup down below puts out 3 images with text next to them. (Uncomment to see)
+
+To create a more interesting layout, we want to swap the text and image position with each new row
+
+image-left  &  text-right
+text-left   &  image-right
+image-left  &  text-right
+
+
+To swap the elements we just have to add an additional css class to the "feature-row" div element.
+That additonal css class is called "feature-row--reverse" and basically just reverses the flex direction.
+
+So then it would be <div class="feature-row feature-row--reverse".
+
+Use the Cycle tag to either add nothing, or the class "feature-row--reverse", depending on the current iteration.
+
+-->
+
+
+{% for  i in (1..3) %}
+  
+<div class="shopify-section index-section">
+    <div class="page-width">
+        <div class="feature-row">
+            <div class="feature-row__item">
+                <div class="feature-row__image-wrapper js">
+                    <div style="padding-top:66.640625%;">
+                        <img class="feature-row__image"
+                           {%if i == 1%}
+                           src="//cdn.shopify.com/s/files/1/0514/8239/4791/files/blog_2_540x.jpg?v=1611745856"
+                      	   {% elsif i == 2%}
+                		   src="//cdn.shopify.com/s/files/1/0514/8239/4791/files/young-hip-woman-at-carnival_925x_4e9f7894-1b36-4c7e-88ca-9df9fd5c6c29_540x.jpg?v=1611246394"
+ 	                       {% elsif i == 3%}
+                      	   src="//cdn.shopify.com/s/files/1/0514/8239/4791/files/young-female-models-denim_925x_2bf31250-01cc-48a4-b19d-e47e41555b6b_540x.jpg?v=1611246386"
+                      	   {% endif %}
+                          >   		
+                    </div>
+                </div>
+            </div>
+            <div class="feature-row__item feature-row__text feature-row__text--padding">
+                <h3 class="h3">Text on the {%if i == 1%}right {%elsif i == 2%}left {%elsif i == 3%} right {%endif%} </h3>
+                <div class="rte rte-setting featured-row__subtext">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Praesent elementum urna nisl, insuscipit odio pulvinar vel. Aliquam hendrerit, nibh tempus efficitur pulvinar, 
+                      velit turpis accumsan augue, id semper mauris mi ac massa. 
+                      Nunc accumsan mi vel felis faucibus, sit ametcon sectetur nulla varius. Donec et ultricies nunc.
+                  </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
