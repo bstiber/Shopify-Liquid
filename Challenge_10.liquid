@@ -14,12 +14,11 @@ When it is "h4" put out "<h4>You are a Liquid pro! </h4>"
 When it is "h2" put out "<h2>You're ready for the first projects! :-)</h2>
 
 
-Test your switch statement, by removing the comment tags around the assignments one after the other.
+Test your switch statement, by removing the comment tags around the assignments one after the other. -->
 
 {% assign element-type = "h6" %}
-{%comment%} {% assign element-type = "h4" %} {%endcomment%}
+{% assign element-type = "h4" %} 
 {%comment%} {% assign element-type = "h2" %} {%endcomment%}
--->
 
   {% case element-type %}
   {% when "h6" %}
