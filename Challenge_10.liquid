@@ -21,7 +21,20 @@ Test your switch statement, by removing the comment tags around the assignments 
 {%comment%} {% assign element-type = "h2" %} {%endcomment%}
 -->
 
+  {% case element-type %}
+  {% when "h6" %}
+
+  <h6>You can do this!</h6>"
   
+  {% when "h4" %}
+
+  <h4>You are a Liquid pro! </h4>"
+  
+  {% when "h2" %}
+  
+  <h2>You're ready for the first projects! :-)</h2>
+
+  {% endcase %}
   
 
   
