@@ -1,0 +1,25 @@
+<!-- Challenge 9 -->
+
+ 
+<!-- 
+a.) Down below you can find a forloop that puts out 15 hello worlds.
+	
+	These tags should now have alternating colors. 
+	1. red
+	2. blue
+	3. green
+ 	...repeat
+
+	(you can add the css classes "red", "blue" or "green")
+
+Find a simple way to assign these values respectively in our for loop.
+
+
+Hint: Cycle-Tags -->
+
+{% for i in (1..15) %}
+
+
+<h6 class="{% cycle 'red','blue', 'green' %}">Hello World</h6>
+
+{% endfor %}
